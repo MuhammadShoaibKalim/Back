@@ -1,0 +1,22 @@
+{
+  "name": "backend-series",
+  "version": "1.0.0",
+  "description": "This is revision of backend series",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": " node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "shoaib",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "prettier": "^3.3.3"
+  }
+}
