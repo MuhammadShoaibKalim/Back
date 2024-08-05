@@ -1,12 +1,37 @@
-import monsgoose from "mongoose";
+import dotenv from 'dotenv';
+import express from 'express';
+import connectdb from './db/index.js';
 
-(async ()=>{
+
+dotenv.config({
+    path:"../.env"
+});
+
+const app = express();
+const PORT = process.env.PORT || 4000;
+
+ connectdb();
+
+/*
+(async () => {
     try {
-        const connection = await monsgoose.connect("mongodb://localhost:27017/ecommerce");
+        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
         console.log("Database connected");
+
+        app.use(express.json());  // Example: Setup middleware
+
+        app.on("error", (error) => {
+            console.error("Server error:", error);
+        });
+
+        app.listen(PORT, () => {
+            console.log(`The app is listening on port ${PORT}`);
+        });
     } catch (error) {
-        console.log(error);
-        throw
-         
+        console.error("The error occurs:", error);
     }
-})()
+})();
+*/
