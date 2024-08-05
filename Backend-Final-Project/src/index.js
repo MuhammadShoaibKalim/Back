@@ -1,13 +1,13 @@
-import express from 'express';
 import connectdb from './db/index.js';
-
-
-
-
-const app = express();
 const PORT = process.env.PORT || 4000;
 
- connectdb();
+ connectdb()
+ .then( ()=>{
+    console.log(`The server is running on port : ${PORT}`)
+ })
+ .catch( (error) =>{
+    console.log(`Error in mongodb`)
+ })
 
 /*
 (async () => {
