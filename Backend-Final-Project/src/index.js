@@ -1,5 +1,6 @@
 import connectdb from './db/index.js';
-const PORT = process.env.PORT || 4000;
+import express from "express";
+const PORT = process.env.PORT || 6000;
 
  connectdb()
  .then( ()=>{
