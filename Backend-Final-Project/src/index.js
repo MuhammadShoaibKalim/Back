@@ -1,14 +1,53 @@
-import connectdb from './db/index.js';
-import express from "express";
-const PORT = process.env.PORT || 9000;
+// import connectdb from './db/index.js';
+// import express from "express";
+// const PORT = process.env.PORT || 3600;
 
- connectdb()
- .then( ()=>{
-    console.log(`The server is running on port : ${PORT}`)
- })
- .catch( (error) =>{
-    console.log(`Error in mongodb`)
- })
+//  connectdb()
+//  .then( ()=>{
+//     console.log(`The server is running on port : ${PORT}`)
+//  })
+//  .catch( (error) =>{
+//     console.log(`Error in mongodb`)
+//     exit(0);
+//  })
+
+
+     
+
+// index.js
+import express from 'express';
+import 'dotenv/config';
+import connectdb from './db/index.js';
+import userRouter from './routes/user.route.js'; // Adjust the path based on your file structure
+
+const app = express();
+const PORT = process.env.PORT || 3600;
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+// Use the user router
+app.use('/api/v1/users', userRouter);
+
+// Function to start the server
+async function startServer() {
+    try {
+        // Connect to MongoDB
+        await connectdb();
+        console.log('Connected to MongoDB');
+
+        // Start the server
+        app.listen(PORT, () => {
+            console.log(`The server is running on port: ${PORT}`);
+        });
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
+        process.exit(1); // Exit the process with an error code
+    }
+}
+
+// Start the server
+startServer();
 
 /*
 (async () => {
