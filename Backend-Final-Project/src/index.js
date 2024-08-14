@@ -1,27 +1,11 @@
-// import connectdb from './db/index.js';
-// import express from "express";
-// const PORT = process.env.PORT || 3600;
-
-//  connectdb()
-//  .then( ()=>{
-//     console.log(`The server is running on port : ${PORT}`)
-//  })
-//  .catch( (error) =>{
-//     console.log(`Error in mongodb`)
-//     exit(0);
-//  })
-
-
-     
-
 // index.js
 import express from 'express';
 import 'dotenv/config';
-import connectdb from './db/index.js';
-import userRouter from './routes/user.route.js'; // Adjust the path based on your file structure
+// import connectdb from './db/index.js';
+// import userRouter from './routes/user.router.js';
 
 const app = express();
-const PORT = process.env.PORT || 3600;
+const PORT = process.env.PORT || 3601; // Changed port
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -49,6 +33,21 @@ async function startServer() {
 // Start the server
 startServer();
 
+
+
+//  connectdb()
+//  .then( ()=>{
+//     console.log(`The server is running on port : ${PORT}`)
+//  })
+//  .catch( (error) =>{
+//     console.log(`Error in mongodb`)
+//     exit(0);
+//  })
+
+
+     
+
+
 /*
 (async () => {
     try {
@@ -72,3 +71,4 @@ startServer();
     }
 })();
 */
+
