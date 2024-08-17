@@ -5,7 +5,7 @@ import 'dotenv/config';
 // import userRouter from './routes/user.router.js';
 
 const app = express();
-const PORT = process.env.PORT || 3601; // Changed port
+const PORT = process.env.PORT || 3601; 
 
 // Middleware to parse JSON bodies
 app.use(express.json());
